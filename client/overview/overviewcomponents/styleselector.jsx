@@ -12,15 +12,13 @@ class StyleSelector extends React.Component {
 
   styleButtonClick(e) {
     e.preventDefault();
-    var styleClicked = this.findStyle(e.target.innerHTML);
-    console.log(styleClicked);
+    var styleClicked = this.findStyle(e.target.alt);
     this.props.updateGallery(styleClicked);
   }
 
   findStyle(name) {
     var returnStyle = 'error';
     this.props.styles.forEach(style => {
-      console.log(style.name === name);
       if (style.name === name) {
         returnStyle = style;
       }
@@ -41,7 +39,11 @@ class StyleSelector extends React.Component {
               stylesArray.map(arrayOf4Styles => (
                 <tr>{
                   arrayOf4Styles.map(style => (
-                    <td onClick={this.styleButtonClick.bind(this)} className="style-button">{style.name}</td>
+                    <td onClick={this.styleButtonClick.bind(this)}>
+                      <div className="mask">
+                        <img className="style-button" alt={style.name} src={style.photos[0].thumbnail_url}></img>
+                      </div>
+                    </td>
                   ))
                 }</tr>
               ))

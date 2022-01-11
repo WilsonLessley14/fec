@@ -76,9 +76,19 @@ body {
 
 
 .style-button {
-  color:black;
+  border: black;
+  border-style: inset;
+
+  object-fit: cover;
+  border-radius: 50%;
+  height: 60px;
+  width: 60px;
+}
+
+.selected-style {
+  border: yellow;
 }
 
 .style-button:hover {
-  color:grey;
+  border:grey;
 }
